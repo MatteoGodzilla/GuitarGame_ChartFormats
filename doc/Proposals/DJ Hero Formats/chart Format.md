@@ -8,6 +8,7 @@ This document details a proposal for adding DJ Hero tracks to the .chart format.
   - [Section Names](#section-names)
   - [Metadata](#metadata)
   - [Global Events](#global-events)
+    - [Megamix-specific Events](#megamix-specific-events)
   - [Track Details](#track-details)
     - [Note, Modifier, and Special Phrase Type Divisions](#note-modifier-and-special-phrase-type-divisions)
     - [Turntable Tracks](#turntable-tracks)
@@ -37,18 +38,21 @@ Tracks:
 | `DJSample<number>` | An audio sample.<br>`number` is the number used to refer to this sample in the chart. | file path |
 
 ## Global Events
-
 The standard `section` and `prc_` events are extended to mark rewind checkpoints, in addition to the following events:
 
 | Event Text                                          | Description                                                                                                                                                                                               |
 | :-------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `dj_rewind_checkpoint [name]`                       | Marks an additional rewind checkpoint.<br>`name` is an optional name given to the checkpoint/section.                                                                                                     |
-| `dj_megamix_intro`                                  | Marks the point where the megamix extended intro begins. This event must be placed before a `dj_megamix_intro_end` event.                                                                                 |
-| `dj_megamix_intro_end`                              | Marks the point where the megamix extended intro ends and where the normal mix begins. When playing the mix by itself only the notes after this event should be considered.                               |
-| `dj_megamix_transition`                             | Marks the transition point of a megamix.                                                                                                                                                                  |
 | `dj_battle_lanes <green> <red> <blue>`              | Specifies which players get which lanes in a DJ battle.<br>`green` specifies which players get the green lane: `p1`, `p2`, or `both`. `red` and `blue` for the red and blue lanes follow the same syntax. |
 | `djdual_battle_lanes <g1> <r1> <b1> <g2> <r2> <b2>` | Specifies which players get which lanes in a dual-table DJ battle.<br>This event's parameters work the same as `dj_battle_event`, it just has 3 additional lane parameters for dual-table.                |
 | `dj_battle_checkpoint [name]`                       | Marks a battle checkpoint.<br>`name` is an optional name for the checkpoint.                                                                                                                              |
+
+### Megamix-specific Events
+| Event Text              | Description                                                                                                                                                                 |
+| :---------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `dj_megamix_intro`      | Marks the point where the megamix extended intro begins. This event must be placed before a `dj_megamix_intro_end` event.                                                   |
+| `dj_megamix_intro_end`  | Marks the point where the megamix extended intro ends and where the normal mix begins. When playing the mix by itself only the notes after this event should be considered. |
+| `dj_megamix_transition` | Marks the transition point of a megamix.                                                                                                                                    |
 
 ## Track Details
 
