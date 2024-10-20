@@ -3,6 +3,16 @@
 This document describes the metadata that is used to define a Megamix for DJ Hero with all the informations needed to correctly play them in future engines.
 
 ## Table of Contents
+- [megamix.ini DJ Hero Metadata Specifications (Proposal)](#megamixini-dj-hero-metadata-specifications-proposal)
+  - [Table of Contents](#table-of-contents)
+  - [Background / What are Megamixes in DJ Hero 2](#background--what-are-megamixes-in-dj-hero-2)
+  - [Folder structure](#folder-structure)
+    - [Example](#example)
+  - [megamix.ini Tags](#megamixini-tags)
+    - [Megamix](#megamix)
+    - [Setlist](#setlist)
+  - [megamix.ini Example](#megamixini-example)
+
 
 ## Background / What are Megamixes in DJ Hero 2
 In DJ Hero 2 a Megamix is a set of mixes that are played in sequence, without stopping the music, in order to appear to the player as a single continuous mix.
@@ -25,6 +35,7 @@ Megamix/
 - mix 1/
   - song.ini
   - notes.chart
+  - cover.png
   - ...
 - transition 1-2/
   - notes.chart
@@ -32,6 +43,7 @@ Megamix/
 - mix 2/
   - song.ini
   - notes.chart
+  - cover.png
   - ...
 ```
 
@@ -39,11 +51,11 @@ Megamix/
 ### Megamix
 All the following tags must be placed under the Megamix section of the megamix.ini file
 
-| Tag Name | Description | Data type |
-| :--- | :--- | :---:|
-| `name` | The name of the Megamix. | string |
-| `dj` | The dj(s) that made the mixes and transitions, separated by a comma. | string
-| `charter` | The charter(s) that charted this megamix, separated by a comma. | string
+| Tag Name  | Description                                                          | Data type |
+| :-------- | :------------------------------------------------------------------- | :-------: |
+| `name`    | The name of the Megamix.                                             |  string   |
+| `dj`      | The dj(s) that made the mixes and transitions, separated by a comma. |  string   |
+| `charter` | The charter(s) that charted this megamix, separated by a comma.      |  string   |
 
 ### Setlist
 This section contains a list of properties of the form `<order> = <subdirectory>`, where:
